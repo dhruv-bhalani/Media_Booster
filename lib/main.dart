@@ -1,12 +1,20 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:media_player/routes/routes.dart';
 import 'package:media_player/screens/home/home_provider.dart';
 import 'package:media_player/screens/mediaPlayer/media_provider.dart';
+import 'package:media_player/videoPlayer/video_Povider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,8 +26,12 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: MediaProvider()),
         ChangeNotifierProvider.value(value: Homeprovider()),
+        ChangeNotifierProvider.value(value: VideoProvider()),
       ],
       child: MaterialApp(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,

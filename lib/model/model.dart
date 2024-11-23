@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MusicModel {
-  final String title;
-  final String path;
-  final String image;
+  String? title, path, b_image, f_image;
+  MusicModel(
+      {required this.title, required this.path, this.b_image, this.f_image});
+}
 
-  MusicModel({required this.title, required this.path, required this.image});
+class VideoModel {
+  String? title, path, video;
+  VideoModel({required this.title, required this.path, this.video});
 }

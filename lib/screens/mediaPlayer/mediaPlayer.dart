@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:media_player/model/model.dart';
 
 import 'package:media_player/screens/mediaPlayer/media_provider.dart';
 import 'package:media_player/utils/extension.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Mediaplayer extends StatefulWidget {
   const Mediaplayer({super.key});
@@ -18,15 +20,17 @@ class _MediaplayerState extends State<Mediaplayer> {
   Widget build(BuildContext context) {
     mediaProviderR = context.read<MediaProvider>();
     mediaProviderW = context.watch<MediaProvider>();
+    // final MusicModel musicModel =
+    //     ModalRoute.of(context)!.settings.arguments as MusicModel;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Media Player'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Media Player'),
+      // ),
       body: Stack(
         children: [
           Image(
-            image: const NetworkImage(
-              'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4Wi7I5w0cH6OzxSQ0vPNACrCiEXJeRcSX_RsteIZRF9wVPg6Z',
+            image: NetworkImage(
+              mediaProviderR.musicList[mediaProviderR.currentIndex].b_image!,
             ),
             fit: BoxFit.cover,
             height: MediaQuery.sizeOf(context).height,
@@ -35,28 +39,85 @@ class _MediaplayerState extends State<Mediaplayer> {
             height: MediaQuery.sizeOf(context).height,
             width: MediaQuery.sizeOf(context).width,
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.7),
+              color: Colors.black.withOpacity(0.8),
             ),
           ),
-          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: PopupMenuButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              iconColor: Colors.white,
+              iconSize: 25,
+              tooltip: 'Menu',
+              padding: const EdgeInsets.all(16),
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    child: const Text('Shere'),
+                    onTap: () {
+                      Share.share(
+                          "${mediaProviderR.musicList[mediaProviderR.currentIndex].title}\n${mediaProviderR.musicList[mediaProviderR.currentIndex].path}");
+                    },
+                  ),
+                  PopupMenuItem(
+                    child: const Text('Exit'),
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/');
+                    },
+                  ),
+                ];
+              },
+            ),
+          ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Image(
-                    image: NetworkImage(
-                        'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4Wi7I5w0cH6OzxSQ0vPNACrCiEXJeRcSX_RsteIZRF9wVPg6Z',
-                        scale: 2.5),
+                  const Spacer(),
+                  // Image(
+                  //   image: NetworkImage(
+                  //       mediaProviderR
+                  //           .musicList[mediaProviderR.currentIndex].f_image!,
+                  //       scale: 1.5),
+                  // ),
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      mediaProviderR
+                          .musicList[mediaProviderR.currentIndex].f_image!,
+                      scale: 1.5,
+                    ),
+                    radius: 150,
+                    backgroundColor: Colors.transparent,
                   ),
-                  30.height,
+                  70.height,
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        '0${mediaProviderW.liveDuration.inMinutes}:${mediaProviderW.liveDuration.inSeconds.bitLength}',
+                        '${mediaProviderR.musicList[mediaProviderR.currentIndex].title}...',
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          mediaProviderW.isLike = !mediaProviderW.isLike;
+                        },
+                        icon: mediaProviderW.isLike
+                            ? const Icon(Icons.favorite)
+                            : const Icon(Icons.favorite_border),
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                  150.height,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '0${mediaProviderW.liveDuration.inMinutes}:${mediaProviderW.liveDuration.inSeconds}',
                         style: const TextStyle(color: Colors.white),
                       ),
                       Slider(
@@ -76,15 +137,25 @@ class _MediaplayerState extends State<Mediaplayer> {
                       ),
                     ],
                   ),
+                  50.height,
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      IconButton(
+                        onPressed: () {
+                          // mediaProviderR.chengeRepeat();
+                        },
+                        icon: const Icon(Icons.repeat),
+                        color: Colors.white,
+                      ),
                       IconButton(
                         onPressed: () {
                           mediaProviderR.previousSong();
                         },
-                        icon: const Icon(Icons.skip_previous),
+                        icon: const Icon(
+                          Icons.skip_previous,
+                          size: 40,
+                        ),
                         color: Colors.white,
                       ),
                       IconButton(
@@ -92,16 +163,88 @@ class _MediaplayerState extends State<Mediaplayer> {
                           mediaProviderR.chengePlayorPause();
                         },
                         icon: mediaProviderW.isPlaying
-                            ? const Icon(Icons.play_arrow)
-                            : const Icon(Icons.pause),
+                            ? const Icon(
+                                Icons.pause_circle_outline_outlined,
+                                size: 50,
+                              )
+                            : const Icon(
+                                Icons.play_circle_outline_outlined,
+                                size: 50,
+                              ),
                         color: Colors.white,
                       ),
                       IconButton(
                         onPressed: () {
                           mediaProviderR.nextSong();
                         },
-                        icon: const Icon(Icons.skip_next),
+                        icon: const Icon(
+                          Icons.skip_next,
+                          size: 40,
+                        ),
                         color: Colors.white,
+                      ),
+                      PopupMenuButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        iconColor: Colors.white,
+                        iconSize: 25,
+                        tooltip: 'Menu',
+                        icon: const Icon(Icons.menu),
+                        itemBuilder: (context) {
+                          return [
+                            const PopupMenuItem(
+                              child: Text('Settings'),
+                            ),
+                            PopupMenuItem(
+                              child: Text(
+                                  'Song ${mediaProviderR.currentIndex + 1}/${mediaProviderR.musicList.length}'),
+                              onTap: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return Container(
+                                      height: 500,
+                                      color: Colors.white,
+                                      child: ListView.builder(
+                                        itemCount:
+                                            mediaProviderW.musicList.length,
+                                        itemBuilder: (context, index) {
+                                          return ListTile(
+                                            contentPadding:
+                                                const EdgeInsets.all(16),
+                                            onTap: () {
+                                              mediaProviderW.isPlaying = true;
+                                              Navigator.pop(context);
+                                            },
+                                            leading: CircleAvatar(
+                                              radius: 25,
+                                              backgroundImage: NetworkImage(
+                                                mediaProviderW
+                                                    .musicList[index].f_image!,
+                                              ),
+                                            ),
+                                            title: Text(
+                                              '${mediaProviderW.musicList[index].title}',
+                                              style: const TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            subtitle: Text(
+                                                '${mediaProviderW.musicList[index].path}'),
+                                          );
+                                        },
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                            const PopupMenuItem(
+                              child: Text('Exit'),
+                            ),
+                          ];
+                        },
                       ),
                     ],
                   ),

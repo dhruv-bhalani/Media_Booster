@@ -36,6 +36,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
+  device_preview: ^1.2.0
+  share_plus: ^10.1.2
   assets_audio_player: ^3.1.1
 
 dev_dependencies:
@@ -67,6 +69,8 @@ flutter:
 
   assets:
     - lib/assets/gif/
+    - lib/assets/images/b_images/
+    - lib/assets/images/f_images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
