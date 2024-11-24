@@ -4,7 +4,7 @@ import 'package:media_player/model/model.dart';
 
 class MediaProvider extends ChangeNotifier {
   bool isPlaying = false;
-  bool isLike = false;
+  bool isLike = true;
   int currentIndex = 0;
   int tabcurrentIndex = 0;
   bool isRepeat = false;
@@ -346,7 +346,8 @@ class MediaProvider extends ChangeNotifier {
 
   void LikeSong() {
     isLike = !isLike;
-    isLike = true;
+
+    isLike = false;
     notifyListeners();
   }
 

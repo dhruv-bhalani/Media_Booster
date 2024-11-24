@@ -193,9 +193,7 @@ class _MediaplayerState extends State<Mediaplayer> {
                         icon: const Icon(Icons.menu),
                         itemBuilder: (context) {
                           return [
-                            const PopupMenuItem(
-                              child: Text('Settings'),
-                            ),
+                            
                             PopupMenuItem(
                               child: Text(
                                   'Song ${mediaProviderR.currentIndex + 1}/${mediaProviderR.musicList.length}'),
@@ -232,6 +230,16 @@ class _MediaplayerState extends State<Mediaplayer> {
                                             ),
                                             subtitle: Text(
                                                 '${mediaProviderW.musicList[index].path}'),
+                                            trailing: IconButton(
+                                              onPressed: () {
+                                                mediaProviderW.isPlaying = true;
+                                                Navigator.pop(context);
+                                              },
+                                              icon:
+                                                  const Icon(Icons.play_arrow),
+                                              style: IconButton.styleFrom(
+                                                  iconSize: 30),
+                                            ),
                                           );
                                         },
                                       ),
@@ -240,9 +248,7 @@ class _MediaplayerState extends State<Mediaplayer> {
                                 );
                               },
                             ),
-                            const PopupMenuItem(
-                              child: Text('Exit'),
-                            ),
+
                           ];
                         },
                       ),

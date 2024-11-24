@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:media_player/main.dart';
 import 'package:media_player/screens/home/home_provider.dart';
 import 'package:media_player/screens/mediaPlayer/media_provider.dart';
-import 'package:media_player/videoPlayer/video_Povider.dart';
+import 'package:media_player/screens/videoPlayer/video_Povider.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
