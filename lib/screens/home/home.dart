@@ -23,7 +23,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
 
     super.initState();
   }
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   itemBuilder: (context, index) {
                     return ListTile(
                       onTap: () {
-                        mediaProviderW.currentIndex = index;
+                        mediaProviderR.playMusic(index);
                         Navigator.pushNamed(context, '/music');
                       },
                       leading: CircleAvatar(
@@ -95,6 +95,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     return GestureDetector(
                       onTap: () {
                         mediaProviderR.currentIndex = index;
+
+                        mediaProviderR.playMusic(index);
+                        // mediaProviderR.changeIndex(index);
                         Navigator.pushNamed(context, '/music');
                       },
                       child: Column(
@@ -154,7 +157,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
-                        mediaProviderR.currentIndex = index;
+                        // mediaProviderR.currentIndex = index;
+
                         Navigator.pushNamed(context, '/video');
                       },
                       child: Column(

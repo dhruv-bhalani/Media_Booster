@@ -1,11 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:media_player/routes/routes.dart';
 import 'package:media_player/screens/home/home_provider.dart';
 import 'package:media_player/screens/mediaPlayer/media_provider.dart';
-import 'package:media_player/videoPlayer/video_Povider.dart';
+import 'package:media_player/screens/videoPlayer/video_Povider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

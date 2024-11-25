@@ -1,4 +1,5 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:media_player/model/model.dart';
 
@@ -8,8 +9,11 @@ class MediaProvider extends ChangeNotifier {
   int currentIndex = 0;
   int tabcurrentIndex = 0;
   bool isRepeat = false;
+  // PlayerState? _playerState;
 
   final AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
+  // late AudioPlayer player = AudioPlayer();
+  // final AudioPlayer audioplayer = AudioPlayer();
   Duration liveDuration = const Duration(seconds: 0);
   Duration totalDuration = const Duration(seconds: 0);
   MediaProvider() {
@@ -21,6 +25,7 @@ class MediaProvider extends ChangeNotifier {
     // 1
     MusicModel(
       title: "Aayi Nai",
+      singer: "Sachin-Jigar, Pawan Singh, Divya Kumar",
       path: "https://pagalfree.com/musics/128-Aayi Nai - Stree 2 128 Kbps.mp3",
       b_image:
           "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4Wi7I5w0cH6OzxSQ0vPNACrCiEXJeRcSX_RsteIZRF9wVPg6Z",
@@ -30,6 +35,7 @@ class MediaProvider extends ChangeNotifier {
     // 2
     MusicModel(
       title: "Bhool Bhulaiyaa 3",
+      singer: "Kartik Aaryan  ",
       path:
           "https://pagalfree.com/musics/128-Bhool Bhulaiyaa 3 - Title Track (Feat. Pitbull) - Bhool Bhulaiyaa 3 128 Kbps.mp3",
       b_image:
@@ -39,6 +45,7 @@ class MediaProvider extends ChangeNotifier {
     // 3
     MusicModel(
         title: "Mere Mehboob Mere Sanam",
+        singer: " Alka Yagnik",
         path:
             "https://pagalfree.com/download/320-Mere Mehboob Mere Sanam - Bad Newz 320 Kbps.mp3",
         b_image:
@@ -48,6 +55,7 @@ class MediaProvider extends ChangeNotifier {
     // 4
     MusicModel(
       title: "Maar Udi",
+      singer: "Shreya Ghoshal",
       path: "https://pagalfree.com/musics/128-Maar Udi - Sarfira 128 Kbps.mp3",
       b_image:
           "https://i.scdn.co/image/ab67616d0000b27356f33d97add47c95c08a964c",
@@ -56,6 +64,7 @@ class MediaProvider extends ChangeNotifier {
     // 5
     MusicModel(
       title: "Angaaron",
+      singer: "Vikas Badisa & Ravi Krishnan ",
       path:
           "https://pagalfree.com/musics/128-Angaaron - Pushpa 2 The Rule 128 Kbps.mp3",
       b_image:
@@ -66,6 +75,7 @@ class MediaProvider extends ChangeNotifier {
     // 6
     MusicModel(
       title: "Tauba Tauba",
+      singer: "Karan Aujla & Vicky Kaushal",
       path:
           "https://pagalfree.com/download/320-Tauba Tauba - Bad Newz 320 Kbps.mp3",
       b_image:
@@ -76,6 +86,7 @@ class MediaProvider extends ChangeNotifier {
     // 8
     MusicModel(
       title: "Halki Halki Si",
+      singer: " Asees Kaur",
       path:
           "https://pagalfree.com/musics/128-Halki Halki Si - Asees Kaur 128 Kbps.mp3",
       b_image:
@@ -86,6 +97,7 @@ class MediaProvider extends ChangeNotifier {
     // 9
     MusicModel(
       title: "Satyanaas",
+      singer: "Chandu Champion",
       path:
           "https://pagalfree.com/musics/128-Satyanaas - Chandu Champion 128 Kbps.mp3",
       b_image: "https://pbs.twimg.com/media/GObNFwhWcAA5Elo.jpg",
@@ -94,7 +106,8 @@ class MediaProvider extends ChangeNotifier {
     ),
     // 10
     MusicModel(
-      title: "badshah",
+      title: "Zaalim",
+      singer: "Badshah",
       path: "https://pagalfree.com/musics/128-Zaalim - Badshah 128 Kbps.mp3",
       b_image:
           "https://i1.sndcdn.com/artworks-SwgPKyuEp7yz5O7c-N2fWIA-t1080x1080.jpg",
@@ -103,6 +116,7 @@ class MediaProvider extends ChangeNotifier {
     // 11
     MusicModel(
       title: "Aaj Ki Raat",
+      singer: "Sachin-Jigar",
       path:
           "https://pagalfree.com/musics/128-Aaj Ki Raat - Stree 2 128 Kbps.mp3",
       b_image:
@@ -112,7 +126,8 @@ class MediaProvider extends ChangeNotifier {
     ),
     // 12
     MusicModel(
-      title: "Manan Bhardwaj",
+      title: "Khaali Botal",
+      singer: "Manan Bhardwaj",
       path:
           "https://pagalfree.com/musics/128-Khaali Botal - Manan Bhardwaj 128 Kbps.mp3",
       b_image:
@@ -122,6 +137,7 @@ class MediaProvider extends ChangeNotifier {
     // 13
     MusicModel(
       title: "pushpa pushpa",
+      singer: "Allu Arjun",
       path:
           "https://pagalfree.com/musics/128-Pushpa Pushpa - Pushpa 2 The Rule 128 Kbps.mp3",
       b_image:
@@ -132,6 +148,7 @@ class MediaProvider extends ChangeNotifier {
     // 14
     MusicModel(
       title: "Yaad Aaunga",
+      singer: "Stebin Ben",
       path:
           "https://pagalfree.com/musics/128-Main Yaad Aaunga - Stebin Ben 128 Kbps.mp3",
       b_image:
@@ -141,6 +158,7 @@ class MediaProvider extends ChangeNotifier {
     // 15
     MusicModel(
       title: "ghagra",
+      singer: "Crew",
       path: "https://pagalfree.com/musics/128-Ghagra - Crew 128 Kbps.mp3",
       b_image:
           "https://i.scdn.co/image/ab67616d0000b273ab00f27207dbce8fb602d9b1",
@@ -150,6 +168,7 @@ class MediaProvider extends ChangeNotifier {
     // 16
     MusicModel(
       title: "Team India Hain HUm",
+      singer: "Maidaan",
       path:
           "https://pagalfree.com/musics/128-Team India Hain Hum - Maidaan 128 Kbps.mp3",
       b_image:
@@ -160,6 +179,7 @@ class MediaProvider extends ChangeNotifier {
     // 17
     MusicModel(
       title: "Tilasmi Bahein",
+      singer: "Heeramandi",
       path:
           "https://pagalfree.com/musics/128-Tilasmi Bahein - Heeramandi 128 Kbps.mp3",
       b_image:
@@ -170,6 +190,7 @@ class MediaProvider extends ChangeNotifier {
     // 18
     MusicModel(
       title: "Khudaya",
+      singer: "Sarfira",
       path: "https://pagalfree.com/musics/128-Khudaya - Sarfira 128 Kbps.mp3",
       b_image:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe9T5HAkihnepzcsFKUzcZWCkXdYRhTr1ApXdABrcLpPd3G3NMbgvaiYmb9ikZmqwJ2kY&usqp=CAU",
@@ -179,6 +200,7 @@ class MediaProvider extends ChangeNotifier {
     // 19
     MusicModel(
       title: "Hauli Hauli",
+      singer: "Khel Khel Mein",
       path:
           "https://pagalfree.com/musics/128-Hauli Hauli - Khel Khel Mein 128 Kbps.mp3",
       b_image:
@@ -189,6 +211,7 @@ class MediaProvider extends ChangeNotifier {
     // 20
     MusicModel(
       title: "Galti",
+      singer: "Vishal Mishra",
       path:
           "https://pagalfree.com/musics/128-Galti - Vishal Mishra 128 Kbps.mp3",
       b_image:
@@ -199,6 +222,7 @@ class MediaProvider extends ChangeNotifier {
     // 21
     MusicModel(
       title: "Singham Again",
+      singer: "Singham",
       path:
           "https://pagalfree.com/musics/128-Singham Again Title Track - Singham Again 128 Kbps.mp3",
       b_image:
@@ -209,6 +233,7 @@ class MediaProvider extends ChangeNotifier {
     // 22
     MusicModel(
       title: "Agar Ho Tum",
+      singer: "Mr. And Mrs. Mahi",
       path:
           "https://pagalfree.com/musics/128-Agar Ho Tum - Mr. And Mrs. Mahi 128 Kbps.mp3",
       b_image:
@@ -219,6 +244,7 @@ class MediaProvider extends ChangeNotifier {
     // 23
     MusicModel(
       title: "Sukriya",
+      singer: "Saaj Bhatt",
       path:
           "https://pagalfree.com/musics/128-Sukriya - Saaj Bhatt 128 Kbps.mp3",
       b_image:
@@ -293,6 +319,10 @@ class MediaProvider extends ChangeNotifier {
     );
   }
 
+  // void changeIndex(int index) {
+  //   currentIndex = index;
+  // }
+
   void chengePlayorPause() {
     if (audioPlayer.isPlaying.value) {
       audioPlayer.pause();
@@ -305,24 +335,28 @@ class MediaProvider extends ChangeNotifier {
   }
 
   void nextSong() {
-    audioPlayer.next();
-    isPlaying = true;
-    if (currentIndex < musicList.length - 1) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
-    }
+    // audioPlayer.next();
+    // isPlaying = true;
+    currentIndex++;
+    playMusic(currentIndex);
+    // if (currentIndex < musicList.length - 1) {
+    //   currentIndex++;
+    // } else {
+    //   currentIndex = 0;
+    // }
     notifyListeners();
   }
 
   void previousSong() {
-    audioPlayer.previous();
-    isPlaying = true;
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = musicList.length - 1;
-    }
+    // audioPlayer.previous();
+    // isPlaying = true;
+    currentIndex--;
+    playMusic(currentIndex);
+    // if (currentIndex > 0) {
+    //   currentIndex--;
+    // } else {
+    //   currentIndex = musicList.length - 1;
+    // }
     notifyListeners();
   }
 
@@ -346,7 +380,6 @@ class MediaProvider extends ChangeNotifier {
 
   void LikeSong() {
     isLike = !isLike;
-
     isLike = false;
     notifyListeners();
   }
@@ -355,4 +388,17 @@ class MediaProvider extends ChangeNotifier {
   //   isRepeat = !isRepeat;
   //   notifyListeners();
   // }
+
+  void playMusic(int index) {
+    currentIndex = index;
+    audioPlayer.open(Audio.network(musicList[index].path!), autoStart: true);
+    isPlaying = true;
+    notifyListeners();
+  }
+
+  void pauseMusic() {
+    audioPlayer.pause();
+    isPlaying = false;
+    notifyListeners();
+  }
 }

@@ -44,31 +44,40 @@ class _MediaplayerState extends State<Mediaplayer> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: PopupMenuButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              iconColor: Colors.white,
-              iconSize: 25,
-              tooltip: 'Menu',
-              padding: const EdgeInsets.all(16),
-              itemBuilder: (context) {
-                return [
-                  PopupMenuItem(
-                    child: const Text('Shere'),
-                    onTap: () {
-                      Share.share(
-                          "${mediaProviderR.musicList[mediaProviderR.currentIndex].title}\n${mediaProviderR.musicList[mediaProviderR.currentIndex].path}");
-                    },
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    mediaProviderR.pauseMusic();
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
                   ),
-                  PopupMenuItem(
-                    child: const Text('Exit'),
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, '/');
-                    },
+                ),
+                const Spacer(),
+                PopupMenuButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                ];
-              },
+                  iconColor: Colors.white,
+                  iconSize: 25,
+                  tooltip: 'Menu',
+                  padding: const EdgeInsets.all(16),
+                  itemBuilder: (context) {
+                    return [
+                      PopupMenuItem(
+                        child: const Text('Shere'),
+                        onTap: () {
+                          Share.share(
+                              "${mediaProviderR.musicList[mediaProviderR.currentIndex].title}\n${mediaProviderR.musicList[mediaProviderR.currentIndex].path}");
+                        },
+                      ),
+                    ];
+                  },
+                ),
+              ],
             ),
           ),
           Center(
@@ -112,7 +121,13 @@ class _MediaplayerState extends State<Mediaplayer> {
                       ),
                     ],
                   ),
+                  Text(
+                    '      ${mediaProviderR.musicList[mediaProviderR.currentIndex].singer}',
+                    maxLines: 1,
+                    style: const TextStyle(color: Colors.white),
+                  ),
                   150.height,
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -193,7 +208,6 @@ class _MediaplayerState extends State<Mediaplayer> {
                         icon: const Icon(Icons.menu),
                         itemBuilder: (context) {
                           return [
-                            
                             PopupMenuItem(
                               child: Text(
                                   'Song ${mediaProviderR.currentIndex + 1}/${mediaProviderR.musicList.length}'),
@@ -248,7 +262,6 @@ class _MediaplayerState extends State<Mediaplayer> {
                                 );
                               },
                             ),
-
                           ];
                         },
                       ),
