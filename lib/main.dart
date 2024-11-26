@@ -24,57 +24,70 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: MediaProvider()),
-        ChangeNotifierProvider.value(value: Homeprovider()),
+        ChangeNotifierProvider.value(
+          value: Homeprovider()..isdarkmode,
+        ),
         ChangeNotifierProvider.value(value: VideoProvider()),
       ],
-      child: MaterialApp(
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
-
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.white,
-          ),
-          textTheme: const TextTheme(),
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Colors.green.shade600,
-          ),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            selectedItemColor: Colors.green.shade600,
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green.shade600,
+      child: Consumer<Homeprovider>(
+        builder: (context, value, child) {
+          return MaterialApp(
+            locale: DevicePreview.locale(context),
+            builder: DevicePreview.appBuilder,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              scaffoldBackgroundColor: Colors.white,
+              appBarTheme: const AppBarTheme(
+                backgroundColor: Colors.black,
+              ),
+              textTheme: const TextTheme(
+                  bodyMedium: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              )),
+              floatingActionButtonTheme: FloatingActionButtonThemeData(
+                backgroundColor: Colors.green.shade600,
+              ),
+              bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                selectedItemColor: Colors.green.shade600,
+              ),
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green.shade600,
+                ),
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                    foregroundColor: Colors.black.withAlpha(200)),
+              ),
             ),
-          ),
-          textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-                foregroundColor: Colors.black.withAlpha(200)),
-          ),
-        ),
-        // darkTheme: ThemeData.dark().copyWith(
-        //   // scaffoldBackgroundColor: Colors.blue,
-        //   appBarTheme: const AppBarTheme(
-        //     backgroundColor: Colors.blue,
-        //   ),
-        //   textTheme: const TextTheme(
-        //     bodyMedium: TextStyle(
-        //         color: Colors.white,
-        //         fontSize: 40,
-        //         fontWeight: FontWeight.bold,
-        //         // fontStyle: FontStyle.italic,
-        //         fontFamily: 'poppins'),
-        //   ),
-        //   floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        //     backgroundColor: Colors.blue,
-        //   ),
-        //   elevatedButtonTheme: ElevatedButtonThemeData(
-        //     style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-        //   ),
-        // ),
-        routes: Routes().allroutes,
+            darkTheme: ThemeData.dark().copyWith(
+              // scaffoldBackgroundColor: Colors.blue,
+              appBarTheme: const AppBarTheme(
+                backgroundColor: Colors.blue,
+              ),
+              textTheme: const TextTheme(
+                bodyMedium: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    // fontStyle: FontStyle.italic,
+                    fontFamily: 'poppins'),
+              ),
+              floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                backgroundColor: Colors.blue,
+              ),
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+              ),
+            ),
+            themeMode: (value.isdarkmode)
+                ? ThemeMode.dark
+                : value.isdarkmode
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
+            routes: Routes().allroutes,
+          );
+        },
       ),
     );
   }

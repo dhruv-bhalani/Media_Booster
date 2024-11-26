@@ -38,22 +38,60 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     videoProviderW = context.watch<VideoProvider>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Music & Video '),
+        backgroundColor: Color(0xff058dd9),
+        title: const Text(
+          'Music & Video ',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
         actions: [
+          IconButton(
+            onPressed: () {
+              homeProviderW.isdarkmode = !homeProviderW.isdarkmode;
+            },
+            icon: homeProviderW.isdarkmode
+                ? const Icon(Icons.light_mode, color: Colors.white)
+                : const Icon(
+                    Icons.dark_mode,
+                    color: Colors.white,
+                  ),
+          ),
           IconButton(
             onPressed: () {
               homeProviderR.check();
             },
             icon: homeProviderW.isCheck
-                ? const Icon(Icons.list_rounded)
-                : const Icon(Icons.grid_view_rounded),
+                ? const Icon(Icons.list_rounded, color: Colors.white)
+                : const Icon(Icons.grid_view_rounded, color: Colors.white),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/favorites');
+            },
+            icon: const Icon(Icons.favorite),
           ),
         ],
         bottom: TabBar(
           controller: tabController,
           tabs: const [
-            Tab(icon: Icon(Icons.music_note), text: 'Music'),
-            Tab(icon: Icon(Icons.video_library), text: 'Video'),
+            Tab(
+              icon: Icon(
+                Icons.music_note,
+                color: Colors.white,
+              ),
+              child: Text(
+                'Music',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Tab(
+              icon: Icon(Icons.video_library, color: Colors.white),
+              child: Text(
+                'Video',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),
@@ -65,6 +103,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   itemCount: mediaProviderR.musicList.length,
                   itemBuilder: (context, index) {
                     return ListTile(
+                      hoverColor: Colors.grey,
+                      splashColor: Colors.grey,
                       onTap: () {
                         mediaProviderR.playMusic(index);
                         Navigator.pushNamed(context, '/music');
@@ -116,10 +156,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           ),
                           Text(
                             "${mediaProviderR.musicList[index].title}",
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
                           ),
                         ],
                       ),

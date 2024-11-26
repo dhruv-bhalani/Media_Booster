@@ -112,22 +112,33 @@ class _MediaplayerState extends State<Mediaplayer> {
                       ),
                       IconButton(
                         onPressed: () {
-                          mediaProviderW.isLike = !mediaProviderW.isLike;
+                          mediaProviderR.likeSong();
+                          mediaProviderR.favList.contains(mediaProviderR
+                                  .musicList[mediaProviderR.currentIndex])
+                              ? mediaProviderR.favList.remove(mediaProviderR
+                                  .musicList[mediaProviderR.currentIndex])
+                              : mediaProviderR.favList.add(mediaProviderR
+                                  .musicList[mediaProviderR.currentIndex]);
                         },
-                        icon: mediaProviderW.isLike
-                            ? const Icon(Icons.favorite)
-                            : const Icon(Icons.favorite_border),
+                        icon: (mediaProviderR.favList.contains(mediaProviderR
+                                .musicList[mediaProviderR.currentIndex]))
+                            ? const Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              )
+                            : const Icon(
+                                Icons.favorite_border,
+                              ),
                         color: Colors.white,
                       ),
                     ],
                   ),
                   Text(
-                    '      ${mediaProviderR.musicList[mediaProviderR.currentIndex].singer}',
+                    '-${mediaProviderR.musicList[mediaProviderR.currentIndex].singer}',
                     maxLines: 1,
                     style: const TextStyle(color: Colors.white),
                   ),
                   150.height,
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -226,7 +237,7 @@ class _MediaplayerState extends State<Mediaplayer> {
                                             contentPadding:
                                                 const EdgeInsets.all(16),
                                             onTap: () {
-                                              mediaProviderW.isPlaying = true;
+                                              mediaProviderR.playMusic(index);
                                               Navigator.pop(context);
                                             },
                                             leading: CircleAvatar(
@@ -246,7 +257,7 @@ class _MediaplayerState extends State<Mediaplayer> {
                                                 '${mediaProviderW.musicList[index].path}'),
                                             trailing: IconButton(
                                               onPressed: () {
-                                                mediaProviderW.isPlaying = true;
+                                                mediaProviderR.playMusic(index);
                                                 Navigator.pop(context);
                                               },
                                               icon:

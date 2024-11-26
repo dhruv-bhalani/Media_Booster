@@ -11,6 +11,6 @@ class Routes {
     '/': (context) => const Home(),
     '/music': (context) => const Mediaplayer(),
     '/video': (context) => const Video(),
-    '/favorites': (context) => const Favorites(),
+    '/favorites': (context) => const FavoritePage(),
   };
 }
