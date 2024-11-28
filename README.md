@@ -22,7 +22,7 @@
 - chewie: ^1.8.5
 - carousel_slider: ^5.0.0
   
- # Out Put :-
+ # Out put :-
  
 <img src = "https://github.com/user-attachments/assets/0653d5ba-51b8-43da-aefd-92bf1a0c16e8" width="200">
 <img src = "https://github.com/user-attachments/assets/2d096a56-7bbd-4e9e-91bf-0fca6418739b" width="200">
