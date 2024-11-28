@@ -14,17 +14,14 @@ class _SplashscreenState extends State<Splashscreen> {
       Navigator.of(context).pushReplacementNamed('/home');
     });
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Container(
-            height: 300,
-            width: 300,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('lib/assets/gif/1.gif'),
-                fit: BoxFit.cover,
-              ),
+      body: Center(
+        child: Container(
+          height: 300,
+          width: 300,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('lib/assets/images/2.jpg'),
+              fit: BoxFit.cover,
             ),
           ),
         ),

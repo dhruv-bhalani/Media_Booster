@@ -36,13 +36,11 @@ class MyApp extends StatelessWidget {
             builder: DevicePreview.appBuilder,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              scaffoldBackgroundColor: Colors.white,
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.black,
               ),
               textTheme: const TextTheme(
                   bodyMedium: TextStyle(
-                color: Colors.white,
                 fontWeight: FontWeight.bold,
               )),
               floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -68,10 +66,9 @@ class MyApp extends StatelessWidget {
               ),
               textTheme: const TextTheme(
                 bodyMedium: TextStyle(
-                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     // fontStyle: FontStyle.italic,
-                    fontFamily: 'poppins'),
+                    color: Colors.white),
               ),
               floatingActionButtonTheme: const FloatingActionButtonThemeData(
                 backgroundColor: Colors.blue,

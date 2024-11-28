@@ -1,5 +1,4 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:media_player/model/model.dart';
 
@@ -13,8 +12,6 @@ class MediaProvider extends ChangeNotifier {
   // PlayerState? _playerState;
 
   final AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
-  // late AudioPlayer player = AudioPlayer();
-  // final AudioPlayer audioplayer = AudioPlayer();
   Duration liveDuration = const Duration(seconds: 0);
   Duration totalDuration = const Duration(seconds: 0);
   MediaProvider() {
@@ -95,8 +92,7 @@ class MediaProvider extends ChangeNotifier {
       f_image: "https://i.ytimg.com/vi/gVQlO6XDQp8/maxresdefault.jpg",
     ),
 
-// 8
-// 9
+// 7
     MusicModel(
       title: "Satyanaas",
       singer: "Chandu Champion",
@@ -106,7 +102,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://a10.gaanacdn.com/gn_img/albums/lJvKa16KDV/vKa5nPJXKD/size_m.jpg",
     ),
-// 10
+// 8
     MusicModel(
       title: "Zaalim",
       singer: "Badshah",
@@ -115,7 +111,7 @@ class MediaProvider extends ChangeNotifier {
           "https://i1.sndcdn.com/artworks-SwgPKyuEp7yz5O7c-N2fWIA-t1080x1080.jpg",
       f_image: "https://i.ytimg.com/vi/3rWL1mavaKQ/maxresdefault.jpg",
     ),
-// 11
+// 9
     MusicModel(
       title: "Aaj Ki Raat",
       singer: "Sachin-Jigar",
@@ -126,7 +122,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://lyricsraag.com/wp-content/uploads/2024/07/Aaj-Ki-Raat-lyrics-english-Stree-2-Tamannaah-Bhatia.jpg",
     ),
-// 12
+// 10
     MusicModel(
       title: "Khaali Botal",
       singer: "Manan Bhardwaj",
@@ -136,7 +132,7 @@ class MediaProvider extends ChangeNotifier {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIOvtX0ZvPOHSlyguN7ngK60oG-mebaykDbg&s",
       f_image: "https://i.ytimg.com/vi/AyAzg7YZPRA/maxresdefault.jpg",
     ),
-// 13
+// 11
     MusicModel(
       title: "pushpa pushpa",
       singer: "Allu Arjun",
@@ -147,7 +143,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://images.news18.com/ibnlive/uploads/2024/10/pushpa-2-release-date-2024-10-3a3d3b3c527135b709a35d5d47e54d3a.jpg?impolicy=website&width=360&height=270",
     ),
-// 14
+// 12
     MusicModel(
       title: "Yaad Aaunga",
       singer: "Stebin Ben",
@@ -157,7 +153,7 @@ class MediaProvider extends ChangeNotifier {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzk-7OHKfPpQaa6kSCzYIyWzFiXC95ze8cwg&s",
       f_image: "https://i.ytimg.com/vi/02aYtxLwidM/hqdefault.jpg",
     ),
-// 15
+// 13
     MusicModel(
       title: "ghagra",
       singer: "Crew",
@@ -167,7 +163,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://english.cdn.zeenews.com/sites/default/files/styles/zm_500x286/public/2024/03/14/1376173-crew-ghagra.png",
     ),
-// 16
+// 14
     MusicModel(
       title: "Team India Hain HUm",
       singer: "Maidaan",
@@ -178,7 +174,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://i.ytimg.com/vi/syL5y4G-gig/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCMhQ8dxY-nOVNEtSx8nOoCzEhJ2Q",
     ),
-// 17
+// 15
     MusicModel(
       title: "Tilasmi Bahein",
       singer: "Heeramandi",
@@ -189,7 +185,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://miro.medium.com/v2/resize:fit:739/1*-g-4MNiotmgUwg2cu_mt6A.jpeg",
     ),
-// 18
+// 16
     MusicModel(
       title: "Khudaya",
       singer: "Sarfira",
@@ -199,7 +195,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://images.onearabia.me/img/2024/06/khudaya-1719472464287-600x340.jpg",
     ),
-// 19
+// 17
     MusicModel(
       title: "Hauli Hauli",
       singer: "Khel Khel Mein",
@@ -210,7 +206,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://m.media-amazon.com/images/M/MV5BMTg3MGU1ZGItZWEzNy00ZGJmLTk1OTYtZGIxNjdhNGViMjUyXkEyXkFqcGc@.V1.jpg",
     ),
-// 20
+// 18
     MusicModel(
       title: "Galti",
       singer: "Vishal Mishra",
@@ -221,7 +217,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://c.saavncdn.com/218/Galti-Hindi-2024-20240201182008-500x500.jpg",
     ),
-// 21
+// 19
     MusicModel(
       title: "Singham Again",
       singer: "Singham",
@@ -232,7 +228,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://stat4.bollywoodhungama.in/wp-content/uploads/2024/10/Singham-Again-11.jpg",
     ),
-// 22
+// 20
     MusicModel(
       title: "Agar Ho Tum",
       singer: "Mr. And Mrs. Mahi",
@@ -243,7 +239,7 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://media5.bollywoodhungama.in/wp-content/uploads/2024/05/Agar-Ho-Tum-Mr.-Mrs.-Mahi-Rajkummar-Rao-Janhvi-Kapoor-480x360.jpg",
     ),
-// 23
+// 21
     MusicModel(
       title: "Sukriya",
       singer: "Saaj Bhatt",
@@ -254,137 +250,23 @@ class MediaProvider extends ChangeNotifier {
       f_image:
           "https://c.saavncdn.com/714/Sukriya-Hindi-2021-20210629020310-500x500.jpg",
     ),
-// 24
-    MusicModel(
-        title: "Karshan Bhagwan Chalya",
-        singer: 'Aditya Gadhvi',
-        path: '',
-        b_image: 'https://i.ytimg.com/vi/PHyT-qbJvuk/sddefault.jpg',
-        f_image: 'https://i.ytimg.com/vi/YMrVf4O65Ss/maxresdefault.jpg'),
-// 25
-    MusicModel(
-        title: "Mayalu Manvi",
-        singer: 'Aditya Gadhvi',
-        path: '',
-        b_image:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC24ev37v4GGbBEZzImpoCCkwc7nv5RY7GTg&s',
-        f_image:
-            'https://i.ytimg.com/vi/WWeDMJWgpRc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCAMDYzQBf6f0BKrK0-hdkiqdHxBw'),
-// 26
-    MusicModel(
-        title: "Gori Radha Ne Kalo Kaan",
-        singer: 'Kirtidan Gadhvi',
-        path: '',
-        b_image:
-            'https://i.scdn.co/image/ab6761610000e5ebf78923904ab4bb312f36e788',
-        f_image:
-            'https://c.saavncdn.com/951/Gori-Radha-Ne-Kalo-Kaan-Shri-Krishna-Nonstop-Dandiya-Gujarati-2022-20220812122435-500x500.jpg'),
-// 27
-    MusicModel(
-        title: 'Moj ma revu moj ma',
-        path: '',
-        singer: 'Aditya Gadhvi',
-        b_image:
-            'https://www.abhivyaktiart.org/wp-content/uploads/2020/03/Opening-performance-by-Aaditya-Gadhavi.jpg',
-        f_image: 'https://i.ytimg.com/vi/pjNlNONkW50/sddefault.jpg'),
-//28
-    MusicModel(
-        title: 'Ranchhod Rangila',
-        path: '',
-        singer: 'Sabhiben Ahir',
-        b_image:
-            'https://i.scdn.co/image/ab67616d0000b273b4e00e829db130c698bed229',
-        f_image:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIIIfmAwytyHnwHv3gPuD9h3L58CjLgGHU3g&s'),
-//29
-    MusicModel(
-        title: 'Mor Bani Thanghat Kare',
-        path: '',
-        singer: 'Ranveer & Deepika',
-        b_image:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKsmNt8Dfd-Xg-DJibolIj4muME3Pz8KOAQ&s',
-        f_image: 'https://i.ytimg.com/vi/xJsvTCMg0qA/maxresdefault.jpg'),
-//30
-    MusicModel(
-        title: 'Pari Hu Main',
-        path: '',
-        singer: 'Falguni Pathak',
-        b_image:
-            'https://i.timesnowhindi.com/stories/Vasaldi_Song_By_Falguni_Pathak.png',
-        f_image:
-            'https://sosimg.sgp1.cdn.digitaloceanspaces.com/artist-gallery/5623709_1702279120.webp'),
-//31
-    MusicModel(
-        title: 'Gori Tame Manda Lidha Mohi Raj',
-        path: '',
-        singer: 'Umesh Barot',
-        b_image:
-            'https://lyricsraag.com/wp-content/uploads/2023/10/Gori-Tame-Manda-Lidha-Mohi-Raj-Lyrics-Translation-Saiyar-Mori-Re.jpg',
-        f_image:
-            'https://c.saavncdn.com/blob/761/Gori-Tame-Manda-Lidha-Mohi-Raj-Gujarati-2022-20220721083823-500x500.jpg'),
-//32
-    MusicModel(
-        title: 'Nagar Me Jogi Aaya',
-        path: '',
-        singer: 'Aditya Gadhvi',
-        b_image:
-            'https://sosimg.sgp1.cdn.digitaloceanspaces.com/artist-gallery/8649380_1702284485.webp',
-        f_image: 'https://i.ytimg.com/vi/05ZqAFpEo8E/maxresdefault.jpg'),
-//33
-    MusicModel(
-        title: 'GHOOMARIYU',
-        path: '',
-        singer: 'twinkal patel-Om Bariya"',
-        b_image:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_BJd6WMc9F-4P9fLhvyjUwqqUm81X_nn4gA&s',
-        f_image:
-            'https://c.saavncdn.com/039/Ghoomariyu-2-0-Gujarati-2022-20220104153727-500x500.jpg'),
-//34
-    MusicModel(
-        title: 'Gujarati Mashup',
-        path: '',
-        singer: 'Herry Nakum',
-        b_image:
-            'https://i.scdn.co/image/ab67616d0000b2739201ec9b61c41380a2070267',
-        f_image:
-            'https://i1.sndcdn.com/artworks-GXhzbjP1N0edJprf-m1q2zA-t500x500.jpg'),
-//35
-    MusicModel(
-        title: 'Dakla',
-        path: '',
-        singer: 'Rajesh Ahir',
-        b_image:
-            'https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/22/85/15/228515ab-b152-be36-1a3c-d039f005cc29/3616842558226.jpg/1200x1200bf-60.jpg',
-        f_image:
-            'https://c.saavncdn.com/226/Dakla-Gujarati-2020-20211207045821-500x500.jpg'),
-//36
-    MusicModel(
-        title: 'Hanuman Chalisa',
-        path: '',
-        singer: 'Aditya Gadhvi',
-        b_image:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSie0vuy7lYxgRs1pIdobxmiYnY_rdajtoGZQ&s',
-        f_image:
-            'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhktukss-4EpH2AcLP1cEzu4TsIh8-A__JwHf32soDq671wSSKhj5mvl_XF0ySiET0TcGHvGE8zX9Bi2bXVTOyBZvj2Ji6v96Edoi220kdHZ62A0ZllDaPUvOLL8MLamMWjy6oMkrCW4CgHDy0m4uc9p-PPcp4CjdnTSsMCYgbNQ2bnBAo5ls6yL4eWRTg/w640-h592/%E0%A4%B9%E0%A4%A8%E0%A5%81%E0%A4%AE%E0%A4%BE%E0%A4%A8%20%E0%A4%9A%E0%A4%BE%E0%A4%B2%E0%A5%80%E0%A4%B8%E0%A4%BE.jpg'),
-//37
-    MusicModel(
-        title: 'Tshe Sanedo',
-        path: '',
-        singer: 'Aariz Saiyed',
-        b_image:
-            'https://a10.gaanacdn.com/gn_img/song/7rVW1Rbk56/VW1eq4MBWk/size_m_1569594381.jpg',
-        f_image:
-            'https://a10.gaanacdn.com/gn_img/song/7rVW1Rbk56/VW1eq4MBWk/size_m_1569594381.jpg'),
   ];
+
   void init() {
     List<Audio> audioList = musicList.map(
       (e) {
-        return Audio.network(
+        return Audio.liveStream(
           e.path ?? "",
           metas: Metas(
             title: e.title,
           ),
         );
+        // return Audio.network(
+        //   e.path ?? "",
+        //   metas: Metas(
+        //     title: e.title,
+        //   ),
+        // );
       },
     ).toList();
     audioPlayer.open(
@@ -393,9 +275,9 @@ class MediaProvider extends ChangeNotifier {
     );
   }
 
-  // void changeIndex(int index) {
-  //   currentIndex = index;
-  // }
+  void changeIndex(int index) {
+    currentIndex = index;
+  }
 
   void chengePlayorPause() {
     if (audioPlayer.isPlaying.value) {
@@ -409,28 +291,14 @@ class MediaProvider extends ChangeNotifier {
   }
 
   void nextSong() {
-    // audioPlayer.next();
-    // isPlaying = true;
     currentIndex++;
     playMusic(currentIndex);
-    // if (currentIndex < musicList.length - 1) {
-    //   currentIndex++;
-    // } else {
-    //   currentIndex = 0;
-    // }
     notifyListeners();
   }
 
   void previousSong() {
-    // audioPlayer.previous();
-    // isPlaying = true;
     currentIndex--;
     playMusic(currentIndex);
-    // if (currentIndex > 0) {
-    //   currentIndex--;
-    // } else {
-    //   currentIndex = musicList.length - 1;
-    // }
     notifyListeners();
   }
 
@@ -456,11 +324,6 @@ class MediaProvider extends ChangeNotifier {
     isLike = !isLike;
     notifyListeners();
   }
-
-  // void chengeRepeat() {
-  //   isRepeat = !isRepeat;
-  //   notifyListeners();
-  // }
 
   void playMusic(int index) {
     currentIndex = index;

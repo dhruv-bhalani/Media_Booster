@@ -42,6 +42,9 @@ dependencies:
   video_player: ^2.9.2
   audioplayers: ^6.1.0
   shared_preferences: ^2.3.3
+  chewie: ^1.8.5
+  carousel_slider: ^5.0.0
+
 
 
 dev_dependencies:
@@ -75,6 +78,9 @@ flutter:
     - lib/assets/gif/
     - lib/assets/images/b_images/
     - lib/assets/images/f_images/
+    - lib/assets/images/
+    - lib/assets/media/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

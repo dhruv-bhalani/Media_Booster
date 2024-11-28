@@ -24,49 +24,89 @@ class _FavoritePageState extends State<FavoritePage> {
         title: const Text("Favorite Page"),
       ),
       body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 3 / 4,
-            ),
-            itemCount: mediaProviderW.favList.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  mediaProviderR.currentIndex = index;
+        padding: const EdgeInsets.all(16),
+        // child: GridView.builder(
+        //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //     crossAxisCount: 3,
+        //     crossAxisSpacing: 10,
+        //     mainAxisSpacing: 10,
+        //     childAspectRatio: 3 / 4,
+        //   ),
+        //   itemCount: mediaProviderW.favList.length,
+        //   itemBuilder: (context, index) {
+        //     return GestureDetector(
+        //       onTap: () {
+        //         mediaProviderR.currentIndex = index;
+        //
+        //         mediaProviderR.playMusic(index);
+        //         // mediaProviderR.changeIndex(index);
+        //         Navigator.pushNamed(context, '/music',
+        //             arguments: mediaProviderR.favList[index]);
+        //       },
+        //       child: Column(
+        //         children: [
+        //           Container(
+        //             height: 100,
+        //             width: 200,
+        //             decoration: BoxDecoration(
+        //               image: DecorationImage(
+        //                 image: NetworkImage(
+        //                   mediaProviderW
+        //                       .favList[mediaProviderR.currentIndex].b_image!,
+        //                 ),
+        //                 fit: BoxFit.cover,
+        //               ),
+        //             ),
+        //           ),
+        //           Text(
+        //             "${mediaProviderW.favList[mediaProviderR.currentIndex].title}",
+        //           ),
+        //         ],
+        //       ),
+        //     );
+        //   },
+        // ),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 3 / 4,
+          ),
+          itemCount: mediaProviderR.favList.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                mediaProviderR.currentIndex = index;
 
-                  mediaProviderR.playMusic(index);
-                  // mediaProviderR.changeIndex(index);
-                  Navigator.pushNamed(context, '/music',
-                      arguments:
-                          mediaProviderR.favList[mediaProviderR.currentIndex]);
-                },
-                child: Column(
-                  children: [
-                    Container(
-                      height: 100,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            mediaProviderW
-                                .favList[mediaProviderR.currentIndex].b_image!,
-                          ),
-                          fit: BoxFit.cover,
+                mediaProviderR.playMusic(index);
+                // mediaProviderR.changeIndex(index);
+                Navigator.pushNamed(context, '/music',
+                    arguments: mediaProviderR.favList[index]);
+              },
+              child: Column(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          mediaProviderW.favList[index].b_image!,
                         ),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Text(
-                      "${mediaProviderW.favList[mediaProviderR.currentIndex].title}",
-                    ),
-                  ],
-                ),
-              );
-            },
-          )),
+                  ),
+                  Text(
+                    '${mediaProviderW.favList[index].title}',
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
