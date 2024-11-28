@@ -10,8 +10,6 @@
 - Play Videos: Smooth video playback.
 - Fullscreen Mode: Enjoy videos in fullscreen.
 
-### Sharing:
-- Share Content: Share your favorite songs or videos with others.
 
 #### Dependencies:
 - provider: ^6.1.2
